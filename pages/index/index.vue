@@ -13,14 +13,44 @@
 		<view class="space"></view>
 		<view class="space g"></view>
 		
-		<view class="">
+		<view class="scroll-h">
 			<card-title title="近期活动"></card-title>
+			<scroll-view scroll-x enable-flex class="list">
+				<view class="sub_list">
+					<single-card class="item"></single-card>
+					<single-card class="item"></single-card>
+					<single-card class="item"></single-card>
+				</view>
+				<view class="sub_list">
+					<single-card class="item"></single-card>
+					<single-card class="item"></single-card>
+					<single-card class="item"></single-card>
+				</view>
+				<view class="sub_list">
+					<single-card class="item"></single-card>
+					<single-card class="item"></single-card>
+					<single-card class="item"></single-card>
+				</view>
+				<view class="sub_list" style="width: 1rpx;"></view>
+			</scroll-view>
+		</view>
+	
+		<view class="content">
+			<view class="title">
+				<uni-icons type="earth" color="#fff" size="24"></uni-icons>
+				<view class="text">mars 城事</view>
+			</view>
+			<view class="cards">
+				<master-card></master-card>
+			</view>
 		</view>
 	</view>
 </template>
 
 <script>
 	import CardTitle from '../../wxcomponents/title.vue'
+	import SingleCard from '../../wxcomponents/singleCard.vue'
+	import MasterCard from '../../wxcomponents/masterCard.vue'
 	export default {
 		data() {
 			return {
@@ -28,7 +58,9 @@
 			}
 		},
 		components: {
-			CardTitle
+			CardTitle,
+			SingleCard,
+			MasterCard
 		},
 		onLoad() {
 
@@ -84,6 +116,46 @@
 			&.g {
 				height: 40rpx;
 				background: $primary;
+			}
+		}
+		
+		.scroll-h {
+			.list {
+				display: flex;
+				height: 600rpx;
+				margin-bottom: 30rpx;
+				.sub_list {
+					width: 600rpx;
+					height: 600rpx;
+					flex-shrink: 0;
+					margin-right: 60rpx;
+					display: flex;
+					flex-direction: column;
+					&:first-child {
+						margin-left: 30rpx;
+					}
+					&:nth-last-child(2) {
+						margin-right: 30rpx;
+					}
+					.item {
+						margin-bottom: 20rpx;
+					}
+				}
+			}
+		}
+	
+		.content {
+			background: $primary;
+			padding: 20rpx;
+			.title {
+				display: flex;
+				margin: 10rpx 0;
+				.text {
+					color: #FFFFFF;
+					font-size: 34rpx;
+					margin-left: 10rpx;
+				}
+				
 			}
 		}
 	}

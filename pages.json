@@ -13,7 +13,8 @@
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",
 		"usingComponents": {
-			"uniIcons": "components/uni-icons/uni-icons"
+			"uniIcons": "components/uni-icons/uni-icons",
+			"uniButton": "components/uni-button/uni-button"
 		}
 	}
 }
