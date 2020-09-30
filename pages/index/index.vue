@@ -42,6 +42,7 @@
 			</view>
 			<view class="cards">
 				<master-card></master-card>
+				<master-card></master-card>
 			</view>
 		</view>
 	</view>
@@ -156,6 +157,13 @@
 					margin-left: 10rpx;
 				}
 				
+			}
+			.cards {
+				display: flex;
+				flex-direction: column;
+				master-card {
+					margin-bottom: 20rpx;
+				}
 			}
 		}
 	}
