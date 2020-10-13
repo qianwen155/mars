@@ -8,5 +8,6 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "vuex": "^3.5.1"
   }
 }

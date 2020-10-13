@@ -2,6 +2,9 @@
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
+			const info = uni.getMenuButtonBoundingClientRect()
+			this.$store.commit('SET_SYSTEM', info)
+			console.log(info)
 		},
 		onShow: function() {
 			console.log('App Show')
