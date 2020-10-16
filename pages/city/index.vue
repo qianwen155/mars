@@ -19,7 +19,7 @@
 			const cityString = uni.getStorageSync('city')
 			if (cityString) {
 				this.$store.commit('SET_CITY', JSON.parse(cityString))
-				uni.redirectTo({
+				uni.switchTab({
 					url: '/pages/home/index'
 				})
 			}
@@ -27,7 +27,7 @@
 		methods: {
 			handleSelect(city) {
 				console.log(city)
-				uni.redirectTo({
+				uni.switchTab({
 					url: '/pages/home/index'
 				})
 			}

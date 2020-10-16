@@ -18,6 +18,12 @@
 				"navigationStyle": "custom",
 				"navigationBarTextStyle": "white"
 			}
+		},
+		{
+			"path": "pages/me/index",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
 		}
 	],
 	"globalStyle": {
@@ -29,5 +35,21 @@
 			"uniIcons": "components/uni-icons/uni-icons",
 			"uniButton": "components/uni-button/uni-button"
 		}
+	},
+	"tabBar": {
+	    "list": [
+			{
+			  "pagePath": "pages/home/index",
+			  "text": "首页"
+			},
+			{
+			  "pagePath": "pages/index/index",
+			  "text": "探索新事物"
+			},
+			{
+			  "pagePath": "pages/me/index",
+			  "text": "我的"
+			}
+		]
 	}
 }
