@@ -2,7 +2,7 @@ import Fly from 'flyio/dist/npm/wx';
 
 const fly = new Fly();
 
-fly.config.baseURL = 'http://devapi.funkits.cn';
+fly.config.baseURL = 'http://juhui.com';
 // 请求拦截
 fly.interceptors.request.use(request => {
     let token = uni.getStorageSync('token'); // getApp().globalData.app.$store.state.token;
@@ -17,7 +17,30 @@ fly.interceptors.response.use(
     response => {
 		const {code, data} = response.data;
 		if (code === 200) {
-			return data;
+			if (data.code === 200) {
+				return data;
+			} else if (data.code === 1020) {
+				uni.showModal({
+				    title: '登录失败',
+				    content: '验证过期，请重新登录！',
+				}).then(res => {
+                    if (res[1].confirm) {
+                        // getApp().globalData.app.$store.commit('user/sync_loginData', {});
+                        // uni.reLaunch({
+                        //     url: '/pages/login/index'
+                        // });
+                    }
+                });
+				return false;
+			} else if (data.code === 1040) {
+				uni.showModal({
+				    title: '登录失败',
+				    content: '您的账号被冻结，请重新联系管理员！',
+					showCancel: false
+				})
+				return false;
+			}
+			
 		}
         return response.data;
     },
@@ -46,11 +69,11 @@ fly.interceptors.response.use(
                 });
                 break;
             default:
-                errRes = err.response && err.response.data && err.response.data.errors;
-                if (errRes && errRes.length) {
+                errRes = err.response && err.response.data && err.response.data.msg;
+                if (errRes) {
                     uni.showModal({
-                        title: 'Error',
-                        content: `${errRes[0].message}`,
+                        title: '提示',
+                        content: errRes,
                         showCancel: false
                     });
                 }

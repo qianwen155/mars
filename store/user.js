@@ -31,12 +31,10 @@ const user = {
 					commit('SET_TOKEN', res.token);
 					uni.setStorageSync('token', res.token);
 					dispatch('getInfo');
-				} else {
-					uni.hideLoading();
 				}
-			}).catch(() => {
+			}).finally(() => {
 				uni.hideLoading();
-			})
+			});
         },
 		
 		getInfo: ({ commit }, value) => {

@@ -1,7 +1,7 @@
 import fly from './request.js';
 
 export const login = (params) => {
-	return fly.post('/api/pdd/wechat_login', params);
+	return fly.post('/api/user/wechat_login', params);
 }
 
 // export {
