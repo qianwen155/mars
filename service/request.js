@@ -17,30 +17,27 @@ fly.interceptors.response.use(
     response => {
 		const {code, data} = response.data;
 		if (code === 200) {
-			if (data.code === 200) {
-				return data;
-			} else if (data.code === 1020) {
-				uni.showModal({
-				    title: '登录失败',
-				    content: '验证过期，请重新登录！',
-				}).then(res => {
-                    if (res[1].confirm) {
-                        // getApp().globalData.app.$store.commit('user/sync_loginData', {});
-                        // uni.reLaunch({
-                        //     url: '/pages/login/index'
-                        // });
-                    }
-                });
-				return false;
-			} else if (data.code === 1040) {
-				uni.showModal({
-				    title: '登录失败',
-				    content: '您的账号被冻结，请重新联系管理员！',
-					showCancel: false
-				})
-				return false;
-			}
-			
+			return data;
+		} else if (code === 1020) {
+			uni.showModal({
+				title: '登录失败',
+				content: '验证过期，请重新登录！',
+			}).then(res => {
+				if (res[1].confirm) {
+					// getApp().globalData.app.$store.commit('user/sync_loginData', {});
+					// uni.reLaunch({
+					//     url: '/pages/login/index'
+					// });
+				}
+			});
+			return false;
+		} else if (code === 1040) {
+			uni.showModal({
+				title: '登录失败',
+				content: '您的账号被冻结，请重新联系管理员！',
+				showCancel: false
+			})
+			return false;
 		}
         return response.data;
     },

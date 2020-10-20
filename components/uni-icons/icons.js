@@ -1,4 +1,5 @@
 export default {
+	"authorize": "\ue603",
 	"location": "\ue601",
 	"search": "\ue600",
 	"arrow-r": "\ue65c",

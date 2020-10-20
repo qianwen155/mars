@@ -4,13 +4,13 @@
 
 <script>
 	import icons from './icons.js';
-	// #ifdef APP-NVUE
-	var domModule = weex.requireModule('dom');
-	domModule.addRule('fontFace', {
-		'fontFamily': "uniicons",
-		'src': "url('//at.alicdn.com/t/font_2101159_iv0ckmix36.ttf')"
-	});
-	// #endif
+	// // #ifdef APP-NVUE
+	// var domModule = weex.requireModule('dom');
+	// domModule.addRule('fontFace', {
+	// 	'fontFamily': "uniicons",
+	// 	'src': "url('//at.alicdn.com/t/font_2101159_wv7qrmdr7ve.ttf')"
+	// });
+	// // #endif
 
 	/**
 	 * Icons 图标
@@ -54,7 +54,7 @@
 	/* #ifndef APP-NVUE */
 	@font-face {
 		font-family: uniicons;
-		src: url('//at.alicdn.com/t/font_2101159_iv0ckmix36.ttf') format('truetype');
+		src: url('//at.alicdn.com/t/font_2101159_wv7qrmdr7ve.ttf') format('truetype');
 	}
 
 	/* #endif */

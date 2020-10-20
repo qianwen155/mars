@@ -8,9 +8,9 @@
 	/**
 	 * Avatar 头像
 	 * @size {String, Number} 尺寸大小
-	 * @radius {String} 圆角，默认圆角
-	 * @src {String} 图片地址
-	 * @avatarStyle {String} 图像额外杨思
+	 * @property {String} radius 圆角，默认圆角
+	 * @property {String} src 图片地址
+	 * @property {String} avatarStyle 图像额外杨思
 	 */
 	export default {
 		name: 'Avatar',

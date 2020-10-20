@@ -1,7 +1,7 @@
 import { login, getInfo as _getInfo } from '../service/index.js'
 const user = {
     state: {
-        userInfo: {},
+        userInfo: null,
 		token: '',
 		city: null,
 		system: null
@@ -25,15 +25,21 @@ const user = {
 			uni.showLoading({
 				title: '登录中'
 			})
-			login(localeVal).then((res) => {
-				console.log(res)
-				if (res) {
-					commit('SET_TOKEN', res.token);
-					uni.setStorageSync('token', res.token);
-					dispatch('getInfo');
-				}
-			}).finally(() => {
-				uni.hideLoading();
+			return new Promise((resolve, reject) => {
+				login(localeVal).then((res) => {
+					if (res) {
+						commit('SET_TOKEN', res.token);
+						uni.setStorageSync('token', res.token);
+						dispatch('getInfo').finally(() => {
+							resolve(true);
+						});
+					} else {
+						uni.hideLoading();
+					}
+				}).catch(() => {
+					reject();
+					uni.hideLoading();
+				})
 			});
         },
 		
@@ -43,14 +49,19 @@ const user = {
 					title: value
 				})
 			}
-			_getInfo().then((res) => {
-				if (res) {
-					commit('SET_USERINFO', res);
-				}
-				uni.hideLoading();
-			}).catch(() => {
-				uni.hideLoading();
+			return new Promise((resolve, reject) => {
+				_getInfo().then((res) => {
+					if (res) {
+						commit('SET_USERINFO', res);
+						resolve()
+					}
+					uni.hideLoading();
+				}).catch(() => {
+					reject()
+					uni.hideLoading();
+				})
 			})
+			
         },
 		
 	}

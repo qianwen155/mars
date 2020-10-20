@@ -4,6 +4,10 @@ export const login = (params) => {
 	return fly.post('/api/user/wechat_login', params);
 }
 
+export const getInfo = () => {
+	return fly.get('/api/user/info');
+}
+
 // export {
 // 	getCategory,
 // 	getList,

@@ -14,9 +14,9 @@
 <script>
 	/**
 	 * CityPage 城市选择
-	 * @visible {Boolean} 是否显示
-	 * @current {String} 当前城市
-	 * @top {Number} 显示的时候顶部距离
+	 * @property {Boolean} visible 是否显示
+	 * @property {String} current 当前城市
+	 * @property {Number} top 显示的时候顶部距离
 	 */
 	import {mapGetters} from 'vuex';
 	export default {
