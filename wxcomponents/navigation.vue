@@ -5,6 +5,7 @@
 			<view class="title">Mars</view>
 			<view class="right"></view>
 		</view>
+		<view class="nav_bar_skeleton" :style="barStyle"></view>
 		
 		<city-page :top="(system.bottom || 0) +10" :visible="visibleCity" @select="showCity"></city-page>
 	</view>
@@ -52,7 +53,9 @@
 		justify-content: space-between;
 		color: #FFFFFF;
 		z-index: 99;
-		position: relative;
+		position: fixed;
+		width: 100%;
+		top: 0;
 		.city_name {
 			font-size: 32rpx;
 			width: 100rpx;
@@ -63,5 +66,8 @@
 		.right {
 			width: 100rpx;
 		}
+	}
+	.nav_bar_skeleton {
+		width: 100%;
 	}
 </style>

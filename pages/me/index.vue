@@ -6,14 +6,18 @@
 		
 		<view v-else>
 			<view>{{ userInfo.nickname }}</view>
-			<image :src="userInfo.avatar || ''"></image>
+			<avatar :src="userInfo.avatar || ''" size="100"></avatar>
 		</view>
 	</view>
 </template>
 
 <script>
+	import Avatar from '../../wxcomponents/avatar.vue'
 	import {mapGetters} from 'vuex';
 	export default {
+		components: {
+			Avatar
+		},
 		data() {
 			return {
 				code: ''
